@@ -14,7 +14,7 @@ namespace hershey {
     font_glyph_t chars[95];
   };
 
-  extern const int8_t futural_vertices[2442];
+  /*extern const int8_t futural_vertices[2442];
   extern const font_t futural;
 
   extern const int8_t futuram_vertices[4802];
@@ -30,13 +30,13 @@ namespace hershey {
   extern const font_t scripts;
 
   extern const int8_t timesi_vertices[4848];
-  extern const font_t timesi;
+  extern const font_t timesi;*/
 
   extern const int8_t timesr_vertices[4600];
   extern const font_t timesr;
 
-  extern const int8_t timesrb_vertices[7994];
-  extern const font_t timesrb;
+  //extern const int8_t timesrb_vertices[7994];
+  //extern const font_t timesrb;
 
   typedef std::function<void(int32_t x1, int32_t y1, int32_t x2, int32_t y2)> line_func;
 

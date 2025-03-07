@@ -10,10 +10,10 @@
 #include <math.h>
 
 #include "libraries/hershey_fonts/hershey_fonts.hpp"
-#include "libraries/bitmap_fonts/bitmap_fonts.hpp"
+/*#include "libraries/bitmap_fonts/bitmap_fonts.hpp"
 #include "libraries/bitmap_fonts/font6_data.hpp"
 #include "libraries/bitmap_fonts/font8_data.hpp"
-#include "libraries/bitmap_fonts/font14_outline_data.hpp"
+#include "libraries/bitmap_fonts/font14_outline_data.hpp"*/
 
 #include "common/pimoroni_common.hpp"
 
@@ -233,7 +233,7 @@ namespace pimoroni {
 
     //scanline_interrupt_func scanline_interrupt = nullptr;
 
-    const bitmap::font_t *bitmap_font;
+    //const bitmap::font_t *bitmap_font;
     const hershey::font_t *hershey_font;
 
     static constexpr RGB332 rgb_to_rgb332(uint8_t r, uint8_t g, uint8_t b) {
@@ -269,7 +269,7 @@ namespace pimoroni {
 
     PicoGraphics(uint16_t width, uint16_t height, void *frame_buffer)
     : frame_buffer(frame_buffer), bounds(0, 0, width, height), clip(0, 0, width, height) {
-      set_font(&font6);
+      //set_font(&font6);
     };
 
     virtual void set_pen(uint c) = 0;
@@ -295,7 +295,7 @@ namespace pimoroni {
 
     virtual bool render_pico_vector_tile(const Rect &bounds, uint8_t* alpha_data, uint32_t stride, uint8_t alpha_type) { return false; }
 
-    void set_font(const bitmap::font_t *font);
+    //void set_font(const bitmap::font_t *font);
     void set_font(const hershey::font_t *font);
     void set_font(std::string_view name);
 

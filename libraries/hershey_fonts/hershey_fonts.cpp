@@ -28,12 +28,13 @@ namespace hershey {
   }
 
   const font_t* font(std::string_view font) {
-    if(font == "sans") return &futural;
+    /*if(font == "sans") return &futural;
     else if(font == "gothic") return &gothgbt;
     else if(font == "cursive") return &scripts;
     else if(font == "serif_italic") return &timesi;
     else if(font == "serif") return &timesr;
-    return &futural;
+    return &futural;*/
+	return &timesr;
   }
 
   inline float deg2rad(float degrees) {

@@ -27,29 +27,29 @@ namespace pimoroni {
     this->frame_buffer = frame_buffer;
   }
 
-  void PicoGraphics::set_font(const bitmap::font_t *font){
+  /*void PicoGraphics::set_font(const bitmap::font_t *font){
     this->bitmap_font = font;
     this->hershey_font = nullptr;
-  }
+  }*/
 
   void PicoGraphics::set_font(const hershey::font_t *font){
-    this->bitmap_font = nullptr;
+    //this->bitmap_font = nullptr;
     this->hershey_font = font;
   }
 
   void PicoGraphics::set_font(std::string_view name){
-    if (name == "bitmap6") {
+    /*if (name == "bitmap6") {
       set_font(&font6);
     } else if (name == "bitmap8") {
       set_font(&font8);
     } else if (name == "bitmap14_outline") {
       set_font(&font14_outline);
-    } else {
+    } else {*/
       // check that font exists and assign it
       if(hershey::has_font(name)) {
         set_font(hershey::font(name));
       }
-    }
+    //}
   }
 
   void PicoGraphics::set_thickness(uint t) {
@@ -131,12 +131,12 @@ namespace pimoroni {
   }
 
   void PicoGraphics::character(const char c, const Point &p, float s, float a) {
-    if (bitmap_font) {
+    /*if (bitmap_font) {
       bitmap::character(bitmap_font, [this](int32_t x, int32_t y, int32_t w, int32_t h) {
         rectangle(Rect(x, y, w, h));
       }, c, p.x, p.y, std::max(1.0f, s), int32_t(a) % 360);
       return;
-    }
+    }*/
 
     if (hershey_font) {
       hershey::glyph(hershey_font, [this](int32_t x1, int32_t y1, int32_t x2, int32_t y2) {
@@ -147,12 +147,12 @@ namespace pimoroni {
   }
 
   void PicoGraphics::text(const std::string_view &t, const Point &p, int32_t wrap, float s, float a, uint8_t letter_spacing, bool fixed_width) {
-    if (bitmap_font) {
+    /*if (bitmap_font) {
       bitmap::text(bitmap_font, [this](int32_t x, int32_t y, int32_t w, int32_t h) {
         rectangle(Rect(x, y, w, h));
       }, t, p.x, p.y, wrap, std::max(1.0f, s), letter_spacing, fixed_width, int32_t(a) % 360);
       return;
-    }
+    }*/
 
     if (hershey_font) {
       if(thickness == 1) {
@@ -169,7 +169,7 @@ namespace pimoroni {
   }
 
   int32_t PicoGraphics::measure_text(const std::string_view &t, float s, uint8_t letter_spacing, bool fixed_width) {
-    if (bitmap_font) return bitmap::measure_text(bitmap_font, t, std::max(1.0f, s), letter_spacing, fixed_width);
+    //if (bitmap_font) return bitmap::measure_text(bitmap_font, t, std::max(1.0f, s), letter_spacing, fixed_width);
     if (hershey_font) return hershey::measure_text(hershey_font, t, s);
     return 0;
   }
